@@ -5,23 +5,24 @@ using System.Windows.Forms;
 
 namespace EstructuraDatos2
 {
-    class LSEC
+    class LDEC
     {
-        private Nodo primero;
-        private Nodo ultimo;
+        private NodoDoble primero;
+        private NodoDoble ultimo;
 
-        public LSEC()
+        public LDEC()
         {
             primero = null;
             ultimo = null;
         }
-        public Nodo Primero
+
+        public NodoDoble Primero
         {
             get { return primero; }
             set { primero = value; }
         }
 
-        public Nodo Ultimo
+        public NodoDoble Ultimo
         {
             get { return ultimo; }
             set { ultimo = value; }
@@ -36,24 +37,26 @@ namespace EstructuraDatos2
 
         public void Insertar(int info)
         {
-            Nodo p;
+            NodoDoble p;
             if (Vacio())
             {
-                primero = new Nodo(info, null);
-                primero.Enlace = primero;
+                primero = new NodoDoble(info, null, null);
+                primero.EnlaceD = primero;
+                primero.EnlaceI = primero;
                 ultimo = primero;
             }
             else
             {
-                p = new Nodo(info, primero);
-                ultimo.Enlace = p;
-                ultimo = p; 
+                p = new NodoDoble(info, ultimo, primero);
+                ultimo.EnlaceD = p;
+                ultimo = p;
+                primero.EnlaceI = ultimo;
             }
         }
 
         public void Eliminar(int dato)
         {
-            Nodo eliminar, p, q, r;
+            NodoDoble eliminar, p, q, r;
             p = primero;
             eliminar = null;
             if (Vacio())
@@ -64,41 +67,39 @@ namespace EstructuraDatos2
                 {
                     if (p.Info == dato)
                         eliminar = p;
-                    p = p.Enlace;
+                    p = p.EnlaceD;
                 } while (p != primero);
                 if (eliminar == null)
                 {
                     MessageBox.Show("Error, el elemento no está en la lista");
                 }
-                else if(eliminar == primero)
+                else if (eliminar == primero)
                 {
-                    if (eliminar.Enlace == primero)
+                    if (eliminar.EnlaceD == primero)
                     {
                         primero = null;
                         ultimo = null;
                     }
                     else
                     {
-                        primero = primero.Enlace;
-                        ultimo.Enlace = primero;
+                        primero = primero.EnlaceD;
+                        primero.EnlaceI = ultimo;
+                        ultimo.EnlaceD = primero;
                     }
-                    eliminar.Enlace = null;
+                    eliminar.EnlaceD = null;
+                    eliminar.EnlaceI = null;
                     eliminar = null;
                 }
                 else
                 {
-                    p = primero;
-                    r = null;
-                    do
-                    {
-                        if (p.Enlace == eliminar)
-                            r = p;
-                        p = p.Enlace;
-                    } while (p != primero);
-                    r.Enlace = eliminar.Enlace;
-                    if (eliminar.Enlace == primero)
+                    q = eliminar.EnlaceD;
+                    r = eliminar.EnlaceI;
+                    r.EnlaceD = q;
+                    q.EnlaceI = r;
+                    if (q == primero)
                         ultimo = r;
-                    eliminar.Enlace = null;
+                    eliminar.EnlaceD = null;
+                    eliminar.EnlaceI = null;
                     eliminar = null;
                 }
             }
