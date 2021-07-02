@@ -5,13 +5,13 @@ using System.Windows.Forms;
 
 namespace EstructuraDatos2
 {
-    class LDECC
+    class LDECabeza
     {
         NodoCabeza cabeza;
         NodoDoble primero;
         NodoDoble ultimo;
 
-        public LDECC()
+        public LDECabeza()
         {
             cabeza = null;
             primero = null;
@@ -43,6 +43,7 @@ namespace EstructuraDatos2
             return false;
         }
 
+
         public void Insertar(int info)
         {
             NodoDoble p;
@@ -51,16 +52,13 @@ namespace EstructuraDatos2
                 cabeza = new NodoCabeza();
                 primero = new NodoDoble(info, null, null);
                 cabeza.Lista = primero;
-                primero.EnlaceD = primero;
-                primero.EnlaceI = primero;
                 ultimo = primero;
             }
             else
             {
-                p = new NodoDoble(info, ultimo, primero);
+                p = new NodoDoble(info, ultimo, null);
                 ultimo.EnlaceD = p;
                 ultimo = p;
-                primero.EnlaceI = ultimo;
             }
             cabeza.Elementos++;
         }
@@ -74,19 +72,20 @@ namespace EstructuraDatos2
                 MessageBox.Show("Error, la lista está vacía");
             else
             {
-                do
+                while (p != null)
                 {
                     if (p.Info == dato)
                         eliminar = p;
                     p = p.EnlaceD;
-                } while (p != primero);
+
+                }
                 if (eliminar == null)
                 {
                     MessageBox.Show("Error, el elemento no está en la lista");
                 }
                 else if (eliminar == primero)
                 {
-                    if (eliminar.EnlaceD == primero)
+                    if (eliminar.EnlaceD == null)
                     {
                         primero = null;
                         ultimo = null;
@@ -95,8 +94,7 @@ namespace EstructuraDatos2
                     else
                     {
                         primero = primero.EnlaceD;
-                        primero.EnlaceI = ultimo;
-                        ultimo.EnlaceD = primero;
+                        primero.EnlaceI = null;
                         cabeza.Elementos--;
                     }
                     eliminar.EnlaceD = null;
@@ -107,10 +105,15 @@ namespace EstructuraDatos2
                 {
                     q = eliminar.EnlaceD;
                     r = eliminar.EnlaceI;
-                    r.EnlaceD = q;
-                    q.EnlaceI = r;
-                    if (q == primero)
-                        ultimo = r;
+                    if (q == null)
+                    {
+                        r.EnlaceD = null;
+                    }
+                    else
+                    {
+                        r.EnlaceD = q;
+                        q.EnlaceI = r;
+                    }
                     eliminar.EnlaceD = null;
                     eliminar.EnlaceI = null;
                     eliminar = null;
@@ -118,6 +121,5 @@ namespace EstructuraDatos2
                 }
             }
         }
-
     }
 }

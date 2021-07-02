@@ -47,9 +47,9 @@ namespace EstructuraDatos2
             this.LSECEli = new System.Windows.Forms.Button();
             this.LDECEli = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtInLDECC = new System.Windows.Forms.TextBox();
-            this.LDECCInt = new System.Windows.Forms.Button();
-            this.LDECCEli = new System.Windows.Forms.Button();
+            this.txtInLDECabeza = new System.Windows.Forms.TextBox();
+            this.LDECabezaInt = new System.Windows.Forms.Button();
+            this.LDECabezaEli = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.BoxCabeza = new System.Windows.Forms.ListView();
             this.SuspendLayout();
@@ -215,37 +215,37 @@ namespace EstructuraDatos2
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(38, 460);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(383, 25);
+            this.label6.Size = new System.Drawing.Size(320, 25);
             this.label6.TabIndex = 18;
-            this.label6.Text = "Lista Doblemente Enlazada Circular con Cabeza";
+            this.label6.Text = "Lista Doblemente Enlazada con Cabeza";
             // 
-            // txtInLDECC
+            // txtInLDECabeza
             // 
-            this.txtInLDECC.Location = new System.Drawing.Point(38, 512);
-            this.txtInLDECC.Name = "txtInLDECC";
-            this.txtInLDECC.Size = new System.Drawing.Size(176, 31);
-            this.txtInLDECC.TabIndex = 19;
-            this.txtInLDECC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInLDECC_KeyPress);
+            this.txtInLDECabeza.Location = new System.Drawing.Point(38, 512);
+            this.txtInLDECabeza.Name = "txtInLDECabeza";
+            this.txtInLDECabeza.Size = new System.Drawing.Size(176, 31);
+            this.txtInLDECabeza.TabIndex = 19;
+            this.txtInLDECabeza.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInLDECC_KeyPress);
             // 
-            // LDECCInt
+            // LDECabezaInt
             // 
-            this.LDECCInt.Location = new System.Drawing.Point(246, 512);
-            this.LDECCInt.Name = "LDECCInt";
-            this.LDECCInt.Size = new System.Drawing.Size(220, 31);
-            this.LDECCInt.TabIndex = 20;
-            this.LDECCInt.Text = "Insertar";
-            this.LDECCInt.UseVisualStyleBackColor = true;
-            this.LDECCInt.Click += new System.EventHandler(this.LDECCInt_Click);
+            this.LDECabezaInt.Location = new System.Drawing.Point(246, 512);
+            this.LDECabezaInt.Name = "LDECabezaInt";
+            this.LDECabezaInt.Size = new System.Drawing.Size(220, 31);
+            this.LDECabezaInt.TabIndex = 20;
+            this.LDECabezaInt.Text = "Insertar";
+            this.LDECabezaInt.UseVisualStyleBackColor = true;
+            this.LDECabezaInt.Click += new System.EventHandler(this.LDECCInt_Click);
             // 
-            // LDECCEli
+            // LDECabezaEli
             // 
-            this.LDECCEli.Location = new System.Drawing.Point(490, 512);
-            this.LDECCEli.Name = "LDECCEli";
-            this.LDECCEli.Size = new System.Drawing.Size(220, 31);
-            this.LDECCEli.TabIndex = 21;
-            this.LDECCEli.Text = "Eliminar";
-            this.LDECCEli.UseVisualStyleBackColor = true;
-            this.LDECCEli.Click += new System.EventHandler(this.LDECCEli_Click);
+            this.LDECabezaEli.Location = new System.Drawing.Point(490, 512);
+            this.LDECabezaEli.Name = "LDECabezaEli";
+            this.LDECabezaEli.Size = new System.Drawing.Size(220, 31);
+            this.LDECabezaEli.TabIndex = 21;
+            this.LDECabezaEli.Text = "Eliminar";
+            this.LDECabezaEli.UseVisualStyleBackColor = true;
+            this.LDECabezaEli.Click += new System.EventHandler(this.LDECCEli_Click);
             // 
             // label7
             // 
@@ -273,9 +273,9 @@ namespace EstructuraDatos2
             this.ClientSize = new System.Drawing.Size(748, 761);
             this.Controls.Add(this.BoxCabeza);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.LDECCEli);
-            this.Controls.Add(this.LDECCInt);
-            this.Controls.Add(this.txtInLDECC);
+            this.Controls.Add(this.LDECabezaEli);
+            this.Controls.Add(this.LDECabezaInt);
+            this.Controls.Add(this.txtInLDECabeza);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LDECEli);
             this.Controls.Add(this.LSECEli);
@@ -321,9 +321,9 @@ namespace EstructuraDatos2
         private System.Windows.Forms.Button LSECEli;
         private System.Windows.Forms.Button LDECEli;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtInLDECC;
-        private System.Windows.Forms.Button LDECCInt;
-        private System.Windows.Forms.Button LDECCEli;
+        private System.Windows.Forms.TextBox txtInLDECabeza;
+        private System.Windows.Forms.Button LDECabezaInt;
+        private System.Windows.Forms.Button LDECabezaEli;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListView BoxCabeza;
     }

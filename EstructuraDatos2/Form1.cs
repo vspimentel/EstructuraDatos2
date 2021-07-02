@@ -16,7 +16,7 @@ namespace EstructuraDatos2
         LDE listaDE = new LDE();
         LSEC listaSEC = new LSEC();
         LDEC listaDEC = new LDEC();
-        LDECC listaDECC = new LDECC();
+        LDECabeza listaDECabeza = new LDECabeza();
         void MostarListaSE()
         {
             Nodo p;
@@ -77,19 +77,19 @@ namespace EstructuraDatos2
             } while (p != listaDEC.Primero);
         }
 
-        void MostrarListaDECC()
+        void MostrarListaDECabeza()
         {
             NodoDoble p;
             lview.Clear();
-            p = listaDECC.Primero;
-            do
+            p = listaDECabeza.Primero;
+            while (p != null)
             {
-                if (!listaDECC.Vacio())
+                if (!listaDECabeza.Vacio())
                 {
                     lview.Items.Add(p.Info.ToString());
                     p = p.EnlaceD;
                 }
-            } while (p != listaDECC.Primero);
+            }
         }
         public Form1()
         {
@@ -258,16 +258,16 @@ namespace EstructuraDatos2
 
         private void LDECCInt_Click(object sender, EventArgs e)
         {
-            if (txtInLDECC.Text != "")
+            if (txtInLDECabeza.Text != "")
             {
-                listaDECC.Insertar(Int32.Parse(txtInLDECC.Text));
-                MostrarListaDECC();
+                listaDECabeza.Insertar(Int32.Parse(txtInLDECabeza.Text));
+                MostrarListaDECabeza();
                 BoxCabeza.Clear();
-                if (listaDECC.Cabeza.Elementos > 0)
-                    BoxCabeza.Items.Add(listaDECC.Cabeza.Elementos.ToString());
+                if (listaDECabeza.Cabeza.Elementos > 0)
+                    BoxCabeza.Items.Add(listaDECabeza.Cabeza.Elementos.ToString());
                 else
                     BoxCabeza.Items.Add(0.ToString());
-                txtInLDECC.Clear();
+                txtInLDECabeza.Clear();
             }
             else
             {
@@ -279,16 +279,16 @@ namespace EstructuraDatos2
         {
             if ((int)e.KeyChar == (int)Keys.Enter)
             {
-                if (txtInLDECC.Text != "")
+                if (txtInLDECabeza.Text != "")
                 {
-                    listaDECC.Insertar(Int32.Parse(txtInLDECC.Text));
-                    MostrarListaDECC();
+                    listaDECabeza.Insertar(Int32.Parse(txtInLDECabeza.Text));
+                    MostrarListaDECabeza();
                     BoxCabeza.Clear();
-                    if (listaDECC.Cabeza.Elementos > 0)
-                        BoxCabeza.Items.Add(listaDECC.Cabeza.Elementos.ToString());
+                    if (listaDECabeza.Cabeza.Elementos > 0)
+                        BoxCabeza.Items.Add(listaDECabeza.Cabeza.Elementos.ToString());
                     else
                         BoxCabeza.Items.Add(0.ToString());
-                    txtInLDECC.Clear();
+                    txtInLDECabeza.Clear();
                 }
                 else
                 {
@@ -299,16 +299,16 @@ namespace EstructuraDatos2
 
         private void LDECCEli_Click(object sender, EventArgs e)
         {
-            if (txtInLDECC.Text != "")
+            if (txtInLDECabeza.Text != "")
             {
-                listaDECC.Eliminar(Int32.Parse(txtInLDECC.Text));
-                MostrarListaDECC();
+                listaDECabeza.Eliminar(Int32.Parse(txtInLDECabeza.Text));
+                MostrarListaDECabeza();
                 BoxCabeza.Clear();
-                if (listaDECC.Cabeza != null)
-                    BoxCabeza.Items.Add(listaDECC.Cabeza.Elementos.ToString());
+                if (listaDECabeza.Cabeza != null)
+                    BoxCabeza.Items.Add(listaDECabeza.Cabeza.Elementos.ToString());
                 else
                     BoxCabeza.Items.Add(0.ToString());
-                txtInLDECC.Clear();
+                txtInLDECabeza.Clear();
             }
             else
             {

@@ -9,10 +9,10 @@ namespace EstructuraDatos2
         private int elementos;
         private NodoDoble lista;
 
-        public NodoCabeza(NodoDoble _lista)
+        public NodoCabeza()
         {
             elementos = 0;
-            lista = _lista;
+            lista = null;
         }
 
         public int Elementos
