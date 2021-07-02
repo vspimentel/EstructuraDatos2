@@ -16,6 +16,7 @@ namespace EstructuraDatos2
         LDE listaDE = new LDE();
         LSEC listaSEC = new LSEC();
         LDEC listaDEC = new LDEC();
+        LDECC listaDECC = new LDECC();
         void MostarListaSE()
         {
             Nodo p;
@@ -74,6 +75,21 @@ namespace EstructuraDatos2
                     p = p.EnlaceD;
                 }
             } while (p != listaDEC.Primero);
+        }
+
+        void MostrarListaDECC()
+        {
+            NodoDoble p;
+            lview.Clear();
+            p = listaDECC.Primero;
+            do
+            {
+                if (!listaDECC.Vacio())
+                {
+                    lview.Items.Add(p.Info.ToString());
+                    p = p.EnlaceD;
+                }
+            } while (p != listaDECC.Primero);
         }
         public Form1()
         {
@@ -233,6 +249,66 @@ namespace EstructuraDatos2
                 listaDEC.Eliminar(Int32.Parse(txtInLDEC.Text));
                 MostrarListaDEC();
                 txtInLDEC.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Error, introduza un valor");
+            }
+        }
+
+        private void LDECCInt_Click(object sender, EventArgs e)
+        {
+            if (txtInLDECC.Text != "")
+            {
+                listaDECC.Insertar(Int32.Parse(txtInLDECC.Text));
+                MostrarListaDECC();
+                BoxCabeza.Clear();
+                if (listaDECC.Cabeza.Elementos > 0)
+                    BoxCabeza.Items.Add(listaDECC.Cabeza.Elementos.ToString());
+                else
+                    BoxCabeza.Items.Add(0.ToString());
+                txtInLDECC.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Error, introduza un valor");
+            }
+        }
+
+        private void txtInLDECC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                if (txtInLDECC.Text != "")
+                {
+                    listaDECC.Insertar(Int32.Parse(txtInLDECC.Text));
+                    MostrarListaDECC();
+                    BoxCabeza.Clear();
+                    if (listaDECC.Cabeza.Elementos > 0)
+                        BoxCabeza.Items.Add(listaDECC.Cabeza.Elementos.ToString());
+                    else
+                        BoxCabeza.Items.Add(0.ToString());
+                    txtInLDECC.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Error, introduza un valor");
+                }
+            }
+        }
+
+        private void LDECCEli_Click(object sender, EventArgs e)
+        {
+            if (txtInLDECC.Text != "")
+            {
+                listaDECC.Eliminar(Int32.Parse(txtInLDECC.Text));
+                MostrarListaDECC();
+                BoxCabeza.Clear();
+                if (listaDECC.Cabeza != null)
+                    BoxCabeza.Items.Add(listaDECC.Cabeza.Elementos.ToString());
+                else
+                    BoxCabeza.Items.Add(0.ToString());
+                txtInLDECC.Clear();
             }
             else
             {

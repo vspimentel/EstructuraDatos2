@@ -47,8 +47,11 @@ namespace EstructuraDatos2
             this.LSECEli = new System.Windows.Forms.Button();
             this.LDECEli = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtInLDECC = new System.Windows.Forms.TextBox();
+            this.LDECCInt = new System.Windows.Forms.Button();
+            this.LDECCEli = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.BoxCabeza = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // txtInLSE
@@ -74,7 +77,7 @@ namespace EstructuraDatos2
             this.lview.HideSelection = false;
             this.lview.Location = new System.Drawing.Point(38, 580);
             this.lview.Name = "lview";
-            this.lview.Size = new System.Drawing.Size(649, 150);
+            this.lview.Size = new System.Drawing.Size(672, 150);
             this.lview.TabIndex = 2;
             this.lview.UseCompatibleStateImageBehavior = false;
             // 
@@ -171,7 +174,7 @@ namespace EstructuraDatos2
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(472, 184);
+            this.label5.Location = new System.Drawing.Point(490, 184);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 25);
             this.label5.TabIndex = 14;
@@ -180,7 +183,7 @@ namespace EstructuraDatos2
             // BoxMul7
             // 
             this.BoxMul7.HideSelection = false;
-            this.BoxMul7.Location = new System.Drawing.Point(608, 184);
+            this.BoxMul7.Location = new System.Drawing.Point(631, 184);
             this.BoxMul7.Name = "BoxMul7";
             this.BoxMul7.Size = new System.Drawing.Size(79, 31);
             this.BoxMul7.TabIndex = 15;
@@ -216,29 +219,63 @@ namespace EstructuraDatos2
             this.label6.TabIndex = 18;
             this.label6.Text = "Lista Doblemente Enlazada Circular con Cabeza";
             // 
-            // textBox1
+            // txtInLDECC
             // 
-            this.textBox1.Location = new System.Drawing.Point(38, 512);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 31);
-            this.textBox1.TabIndex = 19;
+            this.txtInLDECC.Location = new System.Drawing.Point(38, 512);
+            this.txtInLDECC.Name = "txtInLDECC";
+            this.txtInLDECC.Size = new System.Drawing.Size(176, 31);
+            this.txtInLDECC.TabIndex = 19;
+            this.txtInLDECC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInLDECC_KeyPress);
             // 
-            // button1
+            // LDECCInt
             // 
-            this.button1.Location = new System.Drawing.Point(246, 512);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 31);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Insertar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.LDECCInt.Location = new System.Drawing.Point(246, 512);
+            this.LDECCInt.Name = "LDECCInt";
+            this.LDECCInt.Size = new System.Drawing.Size(220, 31);
+            this.LDECCInt.TabIndex = 20;
+            this.LDECCInt.Text = "Insertar";
+            this.LDECCInt.UseVisualStyleBackColor = true;
+            this.LDECCInt.Click += new System.EventHandler(this.LDECCInt_Click);
+            // 
+            // LDECCEli
+            // 
+            this.LDECCEli.Location = new System.Drawing.Point(490, 512);
+            this.LDECCEli.Name = "LDECCEli";
+            this.LDECCEli.Size = new System.Drawing.Size(220, 31);
+            this.LDECCEli.TabIndex = 21;
+            this.LDECCEli.Text = "Eliminar";
+            this.LDECCEli.UseVisualStyleBackColor = true;
+            this.LDECCEli.Click += new System.EventHandler(this.LDECCEli_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(457, 460);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(168, 25);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Cant. de Elementos:";
+            // 
+            // BoxCabeza
+            // 
+            this.BoxCabeza.HideSelection = false;
+            this.BoxCabeza.Location = new System.Drawing.Point(631, 460);
+            this.BoxCabeza.Name = "BoxCabeza";
+            this.BoxCabeza.Size = new System.Drawing.Size(79, 31);
+            this.BoxCabeza.TabIndex = 23;
+            this.BoxCabeza.UseCompatibleStateImageBehavior = false;
+            this.BoxCabeza.View = System.Windows.Forms.View.List;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 761);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.BoxCabeza);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.LDECCEli);
+            this.Controls.Add(this.LDECCInt);
+            this.Controls.Add(this.txtInLDECC);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LDECEli);
             this.Controls.Add(this.LSECEli);
@@ -284,8 +321,11 @@ namespace EstructuraDatos2
         private System.Windows.Forms.Button LSECEli;
         private System.Windows.Forms.Button LDECEli;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtInLDECC;
+        private System.Windows.Forms.Button LDECCInt;
+        private System.Windows.Forms.Button LDECCEli;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListView BoxCabeza;
     }
 }
 
