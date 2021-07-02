@@ -1,5 +1,4 @@
-﻿using EstructuraDatos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,28 +14,50 @@ namespace EstructuraDatos2
     {
         LSE listaSE = new LSE();
         LDE listaDE = new LDE();
+        LSEC listaSEC = new LSEC();
         void MostarListaSE()
         {
             Nodo p;
-            lviewLSE.Clear();
+            lview.Clear();
             p = listaSE.Primero;
             while (p != null)
             {
-                lviewLSE.Items.Add(p.Info.ToString());
-                p = p.Enlace;
+                if (!listaSE.Vacia())
+                {
+                    lview.Items.Add(p.Info.ToString());
+                    p = p.Enlace;
+                }
             }
         }
 
         void MostarListaDE()
         {
             NodoDoble p;
-            lviewLSE.Clear();
+            lview.Clear();
             p = listaDE.Primero;
             while (p != null)
             {
-                lviewLSE.Items.Add(p.Info.ToString());
-                p = p.EnlaceD;
+                if (!listaDE.Vacio())
+                {
+                    lview.Items.Add(p.Info.ToString());
+                    p = p.EnlaceD;
+                }
             }
+        }
+
+        void MostrarListaSEC()
+        {
+            Nodo p;
+            lview.Clear();
+            p = listaSEC.Primero;
+            do
+            {
+                if (!listaSEC.Vacio())
+                {
+                    lview.Items.Add(p.Info.ToString());
+                    p = p.Enlace;
+                }
+            } while (p != listaSEC.Primero);
         }
         public Form1()
         {
@@ -84,5 +105,28 @@ namespace EstructuraDatos2
             }
         }
 
+        private void LSECInt_Click(object sender, EventArgs e)
+        {
+            listaSEC.Insertar(Int32.Parse(txtInLSEC.Text));
+            MostrarListaSEC();
+            txtInLSEC.Clear();
+        }
+
+        private void txtInLSEC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                listaSEC.Insertar(Int32.Parse(txtInLSEC.Text));
+                MostrarListaSEC();
+                txtInLSEC.Clear();
+            }
+        }
+
+        private void LSECEli_Click(object sender, EventArgs e)
+        {
+            listaSEC.Eliminar(Int32.Parse(txtInLSEC.Text));
+            MostrarListaSEC();
+            txtInLSEC.Clear();
+        }
     }
 }

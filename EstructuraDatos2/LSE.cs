@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EstructuraDatos
+namespace EstructuraDatos2
 {
     class LSE
     {
@@ -19,7 +19,7 @@ namespace EstructuraDatos
             primero = null;
         }
 
-        private bool Vacia()
+        public bool Vacia()
         {
             if (primero == null)
                 return true;

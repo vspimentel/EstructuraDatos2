@@ -31,19 +31,20 @@ namespace EstructuraDatos2
         {
             this.txtInLSE = new System.Windows.Forms.TextBox();
             this.LSEIntOrd = new System.Windows.Forms.Button();
-            this.lviewLSE = new System.Windows.Forms.ListView();
+            this.lview = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtInLDE = new System.Windows.Forms.TextBox();
             this.LDEInt = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtInLSEC = new System.Windows.Forms.TextBox();
+            this.LSECInt = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.BoxMul7 = new System.Windows.Forms.ListView();
+            this.LSECEli = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtInLSE
@@ -64,14 +65,14 @@ namespace EstructuraDatos2
             this.LSEIntOrd.UseVisualStyleBackColor = true;
             this.LSEIntOrd.Click += new System.EventHandler(this.LSEIntOrd_Click);
             // 
-            // lviewLSE
+            // lview
             // 
-            this.lviewLSE.HideSelection = false;
-            this.lviewLSE.Location = new System.Drawing.Point(38, 464);
-            this.lviewLSE.Name = "lviewLSE";
-            this.lviewLSE.Size = new System.Drawing.Size(649, 150);
-            this.lviewLSE.TabIndex = 2;
-            this.lviewLSE.UseCompatibleStateImageBehavior = false;
+            this.lview.HideSelection = false;
+            this.lview.Location = new System.Drawing.Point(38, 464);
+            this.lview.Name = "lview";
+            this.lview.Size = new System.Drawing.Size(649, 150);
+            this.lview.TabIndex = 2;
+            this.lview.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
@@ -118,21 +119,23 @@ namespace EstructuraDatos2
             this.label3.TabIndex = 7;
             this.label3.Text = "Lista Simplemente Enlazada Circular";
             // 
-            // textBox2
+            // txtInLSEC
             // 
-            this.textBox2.Location = new System.Drawing.Point(38, 286);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 31);
-            this.textBox2.TabIndex = 8;
+            this.txtInLSEC.Location = new System.Drawing.Point(38, 286);
+            this.txtInLSEC.Name = "txtInLSEC";
+            this.txtInLSEC.Size = new System.Drawing.Size(176, 31);
+            this.txtInLSEC.TabIndex = 8;
+            this.txtInLSEC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInLSEC_KeyPress);
             // 
-            // button2
+            // LSECInt
             // 
-            this.button2.Location = new System.Drawing.Point(246, 286);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(220, 31);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Insertar Ordenadamente";
-            this.button2.UseVisualStyleBackColor = true;
+            this.LSECInt.Location = new System.Drawing.Point(246, 286);
+            this.LSECInt.Name = "LSECInt";
+            this.LSECInt.Size = new System.Drawing.Size(220, 31);
+            this.LSECInt.TabIndex = 9;
+            this.LSECInt.Text = "Insertar";
+            this.LSECInt.UseVisualStyleBackColor = true;
+            this.LSECInt.Click += new System.EventHandler(this.LSECInt_Click);
             // 
             // label4
             // 
@@ -178,24 +181,35 @@ namespace EstructuraDatos2
             this.BoxMul7.UseCompatibleStateImageBehavior = false;
             this.BoxMul7.View = System.Windows.Forms.View.List;
             // 
+            // LSECEli
+            // 
+            this.LSECEli.Location = new System.Drawing.Point(490, 286);
+            this.LSECEli.Name = "LSECEli";
+            this.LSECEli.Size = new System.Drawing.Size(220, 31);
+            this.LSECEli.TabIndex = 16;
+            this.LSECEli.Text = "Eliminar";
+            this.LSECEli.UseVisualStyleBackColor = true;
+            this.LSECEli.Click += new System.EventHandler(this.LSECEli_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 652);
+            this.ClientSize = new System.Drawing.Size(748, 652);
+            this.Controls.Add(this.LSECEli);
             this.Controls.Add(this.BoxMul7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.LSECInt);
+            this.Controls.Add(this.txtInLSEC);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.LDEInt);
             this.Controls.Add(this.txtInLDE);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lviewLSE);
+            this.Controls.Add(this.lview);
             this.Controls.Add(this.LSEIntOrd);
             this.Controls.Add(this.txtInLSE);
             this.Name = "Form1";
@@ -209,19 +223,20 @@ namespace EstructuraDatos2
 
         private System.Windows.Forms.TextBox txtInLSE;
         private System.Windows.Forms.Button LSEIntOrd;
-        private System.Windows.Forms.ListView lviewLSE;
+        private System.Windows.Forms.ListView lview;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtInLDE;
         private System.Windows.Forms.Button LDEInt;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtInLSEC;
+        private System.Windows.Forms.Button LSECInt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListView BoxMul7;
+        private System.Windows.Forms.Button LSECEli;
     }
 }
 

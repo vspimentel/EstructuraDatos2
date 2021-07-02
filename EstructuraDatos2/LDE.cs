@@ -34,7 +34,7 @@ namespace EstructuraDatos2
             set { mult7 = value; }
         }
 
-        private bool Vacio()
+        public bool Vacio()
         {
             if(primero == null)
                 return true;
